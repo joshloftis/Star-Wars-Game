@@ -1,0 +1,10 @@
+body {
+  background: url('../images/star-wars-background.jpg');
+  background-repeat: no-repeat;
+}
+.logo {
+  margin-top: 20px;
+}
+.character {
+  height: 150px;
+}
