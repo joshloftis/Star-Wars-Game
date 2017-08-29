@@ -1,5 +1,5 @@
 body {
-  background: url('../images/star-wars-background.jpg');
+  /*background: url('../images/star-wars-background.jpg');*/
   background-repeat: no-repeat;
 }
 .logo {
@@ -7,4 +7,7 @@ body {
 }
 .character {
   height: 150px;
+}
+.background {
+  background: red;
 }
