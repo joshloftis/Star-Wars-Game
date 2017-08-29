@@ -5,9 +5,16 @@ body {
 .logo {
   margin-top: 20px;
 }
+.start-area {
+  margin-top: 30px;
+}
 .character {
   height: 150px;
 }
 .background {
   background: red;
+}
+.name, .health {
+  text-align: center;
+  font-size: 18px;
 }

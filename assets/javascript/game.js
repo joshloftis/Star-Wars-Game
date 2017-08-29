@@ -15,19 +15,17 @@ $(document).ready(function() {
   //iterates through each .character image and applies the corresponding charAttr key and value
   $('.character').each(function(i) {
     $(this).data({"name" : charAttr.name[i], "attack" : charAttr.attack[i], "health" : charAttr.health[i], "counter" : charAttr.counter[i]});
-    });
-
-  $('.character').each(function() {
-    $(this).append("<div>" + $(this).data("health") + "</div>");
-    console.log($(this).data("health"));
   });
 
-    // console.log($('#char1').data("name"));
-    // console.log($('#char1').data("attack"));
-    // console.log($('#char1').data("health"));
-    // console.log($('#char1').data("counter"));
+  $('.charDiv').each(function(i) {
+    $(this).prepend('<div class="name">' + charAttr.name[i] + "</div>");
+    $(this).append('<div class="health">' + charAttr.health[i] + "</div>");
+  });
 
-    $('#char1Div').append($('#char1').data("name"));
+    console.log($('#char1').data("name"));
+    console.log($('#char1').data("attack"));
+    console.log($('#char1').data("health"));
+    console.log($('#char1').data("counter"));
 
   $('.character').on("click", function() {
     //$("#playerArea").html(this);
