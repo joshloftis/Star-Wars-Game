@@ -8,7 +8,7 @@ body {
 .start-area {
   margin-top: 30px;
 }
-.character {
+.charDiv > img {
   height: 150px;
 }
 .background {
