@@ -1,7 +1,7 @@
 $(document).ready(function() {
   //object to hold characters, attack power, hp, and counter attack power
   var charAttr = {
-    image: ['src="assets/images/Luke_Skywalker.png"', 'src="assets/images/DarthVader3.png"', 'src="assets/images/rey.png"', 'src="assets/images/kyloren.png"' ],
+    image: ['src="assets/images/Luke_Skywalker.png"', 'src="assets/images/Darthvader3.png"', 'src="assets/images/rey.png"', 'src="assets/images/kyloren.png"' ],
     name: ["Luke", "Vader", "Rey", "Ren"],
     attack: [8, 10, 5, 4],
     health: [120, 100, 150, 180],
@@ -17,7 +17,7 @@ $(document).ready(function() {
   $('.charDiv').each(function(i) {
     $(this).attr({"name" : charAttr.name[i], "attack" : charAttr.attack[i], "health" : charAttr.health[i], "counter" : charAttr.counter[i]})
     .append('<div class="name">' + charAttr.name[i] + "</div>")
-    .append('<img class="img-responsive center-block" ' + charAttr.image[i] + '>')
+    .append('<img class="img-responsive center-block charImg" ' + charAttr.image[i] + '>')
     .append('<div class="health">' + charAttr.health[i] + "</div>");
   });
 
@@ -25,7 +25,14 @@ $(document).ready(function() {
 
   $('.charDiv').on('click', function () {
     console.log($(this).attr("name"));
-    
-    playerChosen = true;
+    if (playerChosen == false) {
+      $('#playerArea').html(this);
+
+      playerChosen = true;
+    } else {
+      $('#defenderArea').html(this);
+      enemyChosen = true;
+    }
   });
+
 });
