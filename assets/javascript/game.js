@@ -26,8 +26,8 @@ $(document).ready(function() {
   $('.charDiv').on('click', function () {
     console.log($(this).attr("name"));
     if (playerChosen == false) {
-      $('#playerArea').html(this);
-
+      $('#playerArea').append(this);
+      $('.charDiv').not(this).appendTo('#holdingBin');
       playerChosen = true;
     } else {
       $('#defenderArea').html(this);
