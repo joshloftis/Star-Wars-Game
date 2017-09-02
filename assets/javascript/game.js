@@ -12,7 +12,7 @@
   var playerChosen = false;
   var enemyChosen = false;
   var gameOver = false;
-  var enemyDefeated = false;
+  var enemyDefeated = true;
   var chosenPlayer;
   var playerHP;
   var playerAttack;
@@ -62,6 +62,7 @@ $(document).ready(function() {
       chosenEnemy = $(this);
       enemyHP = $(chosenEnemy).data("health");
       enemyCounter = $(chosenEnemy).data("counter");
+      enemyDefeated = false;
     }
     });
     $('#attackBtn').on('click', function() {
