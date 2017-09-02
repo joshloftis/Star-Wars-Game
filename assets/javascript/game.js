@@ -20,24 +20,14 @@
   var chosenEnemy;
   var enemyCounter;
   var enemyHP;
-
-
-
-
-
 // Functions
 //-----------------------------------------------------------------------------
-
   $('.charDiv').each(function(i) {
     $(this).data({"name" : charAttr.name[i], "attack" : charAttr.attack[i], "health" : charAttr.health[i], "counter" : charAttr.counter[i], "baseAttack" : charAttr.baseAttack[i]})
     .append('<div class="name">' + charAttr.name[i] + "</div>")
     .append('<img class="img-responsive center-block charImg" ' + charAttr.image[i] + '>')
     .append('<div class="health">' + charAttr.health[i] + "</div>");
   });
-
-  console.log($('#char1').data());
-
-
 // Game Logic
 //-----------------------------------------------------------------------------
 $(document).ready(function() {
@@ -48,8 +38,6 @@ $(document).ready(function() {
       playerHP = $(chosenPlayer).data("health");
       playerAttack = $(chosenPlayer).data("attack");
       playerBaseAttack = $(chosenPlayer).data("baseAttack");
-      console.log(playerHP);
-      console.log(playerAttack);
       $('#playerArea').append(this);
       $(this).off('click');
       $('.charDiv').not(this).appendTo('#holdingBin');
@@ -68,15 +56,17 @@ $(document).ready(function() {
     $('#attackBtn').on('click', function() {
       if (enemyDefeated == false) {
         playerHP -= enemyCounter;
-        console.log("Player HP is " + playerHP);
         enemyHP -= playerAttack;
-        console.log("Enemy HP is " + enemyHP);
         playerAttack += playerBaseAttack;
-        console.log("Player attack is " + playerAttack);
+        $('#playerArea > .charDiv > .health').html(playerHP);
+        $('#defenderArea > .charDiv > .health').html(enemyHP);
          if (enemyHP <= 0) {
           enemyDefeated = true;
           enemyChosen = false;
           $('#defenderArea').empty();
+        }
+        if (playerHP <= 0) {
+          $('#content').html("YOU LOSE! Refresh page to play again.");
         }
       } else if (enemyDefeated == true) {
         if (enemyChosen == false) {
@@ -85,6 +75,4 @@ $(document).ready(function() {
       } else {
       }
     });
-
-
 });
